@@ -1,0 +1,42 @@
+# * *****************************************************************************
+# *
+# *  Pentaho Data Integration
+# *
+# *  Copyright (C) 2002-2020 by Hitachi Vantara : http://www.pentaho.com
+# *
+# *  *******************************************************************************
+# *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use
+# *  this file except in compliance with the License. You may obtain a copy of the
+# *  License at
+# *
+# *     http://www.apache.org/licenses/LICENSE-2.0
+# *
+# *  Unless required by applicable law or agreed to in writing, software
+# *  distributed under the License is distributed on an "AS IS" BASIS,
+# *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# *  See the License for the specific language governing permissions and
+# *  limitations under the License.
+# *
+# * *****************************************************************************
+FROM openjdk:8-slim
+
+RUN set -ex && \
+    apt-get upgrade && \
+    apt-get update && \
+    ln -s /lib /lib64 && \
+    apt-get -y install bash tini && \
+    rm /bin/sh && \
+    ln -sv /bin/bash /bin/sh && \
+    echo "auth required pam_wheel.so use_uid" >> /etc/pam.d/su && \
+    chgrp root /etc/passwd && chmod ug+rw /etc/passwd
+
+# Setup Build Env
+RUN apt-get -y install build-essential wget gfortran && \
+    apt-get -y install libreadline-dev zlib1g-dev libbz2-dev liblzma-dev && \
+    apt-get -y install libpcre3 libpcre3-dev libcurl4-openssl-dev libssl-dev openssl  && \
+    apt-get -y install xz-utils libxml2-dev libpq-dev  && \
+    rm -rf /var/cache/apt/*
+
+WORKDIR /tmp
+
+ENTRYPOINT [ "/bin/bash" ]
