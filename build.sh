@@ -1,5 +1,5 @@
 #/bin/bash
-export BUILD_VERSION=v0.1.0
+export BUILD_VERSION=v0.1.1
 export DOCKER_REPO=baudekin
 export R_VERSION=r3.6.3
 export SPARKLYR_VERSION=sparklyr1.1.0_dplyr0.8.5
