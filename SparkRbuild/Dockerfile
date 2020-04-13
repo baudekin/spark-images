@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/spark2.4.5_sparkbuild:v0.1.0
+FROM baudekin/spark2.4.5_sparkbuild:v0.1.1
 
 WORKDIR /tmp
 RUN wget https://cran.r-project.org/src/base/R-3/R-3.6.3.tar.gz 

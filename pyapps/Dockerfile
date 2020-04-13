@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/spark2.4.5_pybuild_3.7:v0.1.0
+FROM baudekin/spark2.4.5_pybuild_3.7:v0.1.1
 RUN mkdir ${SPARK_HOME}/apps
 COPY ./apps ${SPARK_HOME}/apps
 

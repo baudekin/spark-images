@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/openjdk8_build:v0.1.0
+FROM baudekin/openjdk8_build:v0.1.1
 
 ENV SPARK_MIRROR http://apache.mirrors.pair.com/spark
 ENV SPARK_VERSION 2.4.5 

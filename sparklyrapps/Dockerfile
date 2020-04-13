@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/sparklyrbuild_sparklyr1.1.0_dplyr0.8.5:v0.1.0
+FROM baudekin/sparklyrbuild_sparklyr1.1.0_dplyr0.8.5:v0.1.1
 RUN mkdir ${SPARK_HOME}/apps
 COPY ./apps ${SPARK_HOME}/apps
 WORKDIR /opt/spark/work-dir
