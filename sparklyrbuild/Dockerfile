@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/sparkrbuild_r3.6.3:v0.1.1
+FROM baudekin/spark2.4.5_sparkrbuild_r3.6.3:v0.1.2
 
 # Uncomment the lines below to install dplyr 0.8.5 when it is nolonger the latest
 # RUN R -e "install.packages("https://cran.r-project.org/src/contrib/Archive/dplyr/dplyr_0.8.5.tar.gz", repos=NULL, type="source", dependencies=TRUE)"

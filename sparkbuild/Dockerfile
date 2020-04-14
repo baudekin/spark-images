@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/openjdk8_build:v0.1.1
+FROM baudekin/openjdk8_build:v0.1.2
 
 ENV SPARK_MIRROR http://apache.mirrors.pair.com/spark
 ENV SPARK_VERSION 2.4.5 
@@ -32,8 +32,7 @@ RUN wget ${SPARK_MIRROR}/spark-${SPARK_VERSION}/spark-${SPARK_VERSION}.tgz
 RUN tar zxf ./spark-${SPARK_VERSION}.tgz  
 
 WORKDIR ./spark-${SPARK_VERSION}
-#RUN ./dev/make-distribution.sh --name hitachi-ldl-spark -Pkubernetes -Phadoop-2.7 -Dhadoop.version=2.8.2 -DskipTests 
-RUN ./dev/make-distribution.sh --name hitachi-ldl-spark --pip  -Pkubernetes -Phadoop-2.7 -Dhadoop.version=2.8.2 -DskipTests 
+RUN ./dev/make-distribution.sh --name hitachi-ldl-spark -Pkubernetes -Phadoop-2.7 -Dhadoop.version=2.8.2 -DskipTests 
 
 ENV SPARK_HOME /opt/spark
 WORKDIR ${SPARK_HOME}/jars 

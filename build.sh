@@ -1,5 +1,5 @@
 #/bin/bash
-export BUILD_VERSION=v0.1.1
+export BUILD_VERSION=v0.1.2
 export DOCKER_REPO=baudekin
 export R_VERSION=r3.6.3
 export SPARKLYR_VERSION=sparklyr1.1.0_dplyr0.8.5
@@ -16,7 +16,7 @@ docker build --tag ${DOCKER_REPO}/spark2.4.5_sparkrapps_${R_VERSION}:${BUILD_VER
 docker push ${DOCKER_REPO}/spark2.4.5_sparkrapps_${R_VERSION}:${BUILD_VERSION} 
 docker build --tag ${DOCKER_REPO}/spark2.4.5_sparklyrbuild_${SPARKLYR_VERSION}:${BUILD_VERSION} ./sparklyrbuild
 docker push ${DOCKER_REPO}/spark2.4.5_sparklyrbuild_${SPARKLYR_VERSION}:${BUILD_VERSION} 
-docker build --tag ${DOCKER_REPO}/spark2.4.5_sparklyrapps_${SPARKLYR_VERSION}:${BUILD_VERSION} ./sparklyrbuild
+docker build --tag ${DOCKER_REPO}/spark2.4.5_sparklyrapps_${SPARKLYR_VERSION}:${BUILD_VERSION} ./sparklyrapps
 docker push ${DOCKER_REPO}/spark2.4.5_sparklyrapps_${SPARKLYR_VERSION}:${BUILD_VERSION} 
 docker build --tag ${DOCKER_REPO}/spark2.4.5_pybuild_${PYTHON_VERSION}:${BUILD_VERSION} ./pybuild
 docker push ${DOCKER_REPO}/spark2.4.5_pybuild_${PYTHON_VERSION}:${BUILD_VERSION} 
