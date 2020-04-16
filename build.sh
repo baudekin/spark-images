@@ -22,3 +22,5 @@ docker build --tag ${DOCKER_REPO}/spark2.4.5_pybuild_${PYTHON_VERSION}:${BUILD_V
 docker push ${DOCKER_REPO}/spark2.4.5_pybuild_${PYTHON_VERSION}:${BUILD_VERSION} 
 docker build --tag ${DOCKER_REPO}/spark2.4.5_pyapps_${PYTHON_VERSION}:${BUILD_VERSION} ./pyapps
 docker push ${DOCKER_REPO}/spark2.4.5_pyapps_${PYTHON_VERSION}:${BUILD_VERSION} 
+docker build --tag ${DOCKER_REPO}/spark2.4.5_pynotebook_${PYTHON_VERSION}:${BUILD_VERSION} ./pynotebook
+docker push ${DOCKER_REPO}/spark2.4.5_pynotebook_${PYTHON_VERSION}:${BUILD_VERSION} 

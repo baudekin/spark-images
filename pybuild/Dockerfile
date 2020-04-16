@@ -34,6 +34,7 @@ RUN apt install -y python python-pip && \
     pip3 install pypandoc && \
     pip3 install pyspark==2.4.5 && \
     pip3 install py4j==0.10.7 && \
+    pip3 install pyarrow==0.16.0 && \
     rm -r /root/.cache && rm -rf /var/cache/apt/*
 
 # Create pyspark zip
