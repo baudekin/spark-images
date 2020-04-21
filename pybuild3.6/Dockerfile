@@ -18,8 +18,29 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/spark2.4.5_sparklyrbuild_sparklyr1.1.0_dplyr0.8.5:v0.1.3
-RUN mkdir ${SPARK_HOME}/apps
-COPY ./apps ${SPARK_HOME}/apps
-WORKDIR /opt/spark/work-dir
-ENTRYPOINT [ "/opt/entrypoint.sh" ]
+FROM baudekin/spark2.4.5_sparkbuild:v0.1.3
+
+WORKDIR /
+ENV PATH="/root/miniconda3/bin:${PATH}"
+ARG PATH="/root/miniconda3/bin:${PATH}"
+RUN apt-get update
+
+RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh &&  \
+    mkdir /root/.conda && \
+    bash Miniconda3-latest-Linux-x86_64.sh -b && \
+    rm -f Miniconda3-latest-Linux-x86_64.sh
+    
+RUN conda update -n base -c defaults conda
+RUN conda init bash
+RUN bin/bash;source $HOME/.bashrc && \
+    conda create -n py36 python=3.6 && \
+    conda activate py36
+RUN echo "conda activate py36" >> $HOME/.bashrc
+# Create pyspark zip
+ENV PYTHONPATH ${SPARK_HOME}/python/lib/pyspark.zip:${SPARK_HOME}/python/lib/py4j-*.zip
+
+#WORKDIR /opt/spark/work-dir
+#ENTRYPOINT [ "/opt/entrypoint.sh" ]
+ENTRYPOINT [ "/bin/bash" ]

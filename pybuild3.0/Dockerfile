@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/spark3.0.0_sparkbuild:v0.1.2
+FROM baudekin/spark3.0.0_sparkbuild:v0.1.3
 
 WORKDIR /
 # TODO: Investigate running both pip and pip3 via virtualenvs

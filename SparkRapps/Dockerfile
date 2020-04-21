@@ -18,7 +18,7 @@
 # *  limitations under the License.
 # *
 # * *****************************************************************************
-FROM baudekin/spark2.4.5_sparkrbuild_r3.6.3:v0.1.2
+FROM baudekin/spark2.4.5_sparkrbuild_r3.6.3:v0.1.3
 RUN mkdir ${SPARK_HOME}/apps
 COPY ./apps ${SPARK_HOME}/apps
 WORKDIR /opt/spark/work-dir
